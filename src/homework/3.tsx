@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
+
+// type InputProps = {
+//   type: string;  
+//   onChange: (value: string) => void;
+// }
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
 export function FormComponent() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
+  const inputProps: InputProps = {
+    type: "text",
+    onChange: handleChange,
+  };
+
   return (
-    <input type="text" value={value} onChange={handleChange} />
+    <input {...inputProps} value={value} />
   );
 }
