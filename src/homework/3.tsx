@@ -1,9 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
 
-// type InputProps = {
-//   type: string;  
-//   onChange: (value: string) => void;
-// }
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
