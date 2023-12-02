@@ -4,11 +4,11 @@ type Props = {
   children: React.ReactElement;
   onContentEndVisible: () => void;
 };
-type Options = {
-  rootMargin: string;
-  threshold: number;
-  root: null;
-};
+// type Options = {
+//   rootMargin: string;
+//   threshold: number;
+//   root: null;
+// };
 
 // Опишіть Props
 export function Observer({ children, onContentEndVisible }: Props) {
@@ -17,7 +17,7 @@ export function Observer({ children, onContentEndVisible }: Props) {
 
   useEffect(() => {
     // Вкажіть правильний тип для options, підказка, клас також можна вказувати як тип
-    const options: Options = {
+    const options: IntersectionObserverInit = {
       rootMargin: "0px",
       threshold: 1.0,
       root: null,
